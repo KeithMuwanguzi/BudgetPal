@@ -6,3 +6,5 @@ features/__pycache__
 users/migrations
 features/migrations
 db.sqlite3
+income_expenses/migrations
+income_expenses/__pycache__
