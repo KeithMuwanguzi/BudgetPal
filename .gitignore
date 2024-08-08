@@ -1,7 +1,8 @@
 server/settings.py
-server/__pycache__.py
-users/__pycache__.py
-api/__pycache__.py
-features/__pycache__.py
+server/__pycache__
+users/__pycache__
+api/__pycache__
+features/__pycache__
 users/migrations
 features/migrations
+db.sqlite3
