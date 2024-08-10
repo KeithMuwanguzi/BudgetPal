@@ -4,6 +4,7 @@ from income_expenses.models import IncomeData, ExpenseData
 from . serializers import IncomeSerializer, ExpenseSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import SessionAuthentication, TokenAuthentication
+from django.db.models import Sum
 
 
 @api_view(['GET'])
@@ -35,6 +36,31 @@ def addIncome(request):
             'status':'error',
             'data':serializer.errors
         })
+    
+@api_view(['GET'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
+def incomeTotal(request):
+    salary_total = 0
+    others_total = 0
+    bonuses = 0
+    incomes = IncomeData.objects.filter(user = request.user)
+    for income in incomes:
+        if income.category == 'Salary':
+            salary_total += income.amount
+        elif income.category == 'Bonus':
+            bonuses += income.amount
+        else:
+            others_total += income.amount
+
+    return Response({
+        'message':'Analytics fetched',
+        'data':{
+            'salary_total':salary_total,
+            'Bonuses': bonuses,
+            'others_total':others_total
+        }
+    })
 
 @api_view(['GET'])
 @authentication_classes([SessionAuthentication, TokenAuthentication])

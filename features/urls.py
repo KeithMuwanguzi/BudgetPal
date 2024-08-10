@@ -6,4 +6,5 @@ urlpatterns = [
     path('expenses/',views.expensesList),
     path('add_income/',views.addIncome),
     path('add_expense/',views.addExpense),
+    path('income_analytics/',views.incomeTotal),
 ]
