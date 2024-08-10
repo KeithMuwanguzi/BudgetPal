@@ -1,10 +1,10 @@
-server/settings.py
-server/__pycache__
-users/__pycache__
-auth/__pycache__
-features/__pycache__
-users/migrations
-features/migrations
-db.sqlite3
-income_expenses/migrations
-income_expenses/__pycache__
+# server/settings.py
+# server/__pycache__
+# users/__pycache__
+# auth/__pycache__
+# features/__pycache__
+# users/migrations
+# features/migrations
+# db.sqlite3
+# income_expenses/migrations
+# income_expenses/__pycache__
